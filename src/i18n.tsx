@@ -2,10 +2,10 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 
 // 앱과 같은 네 언어(갈무리 글꼴에 글자가 있는 언어만). 순서는 고르는 목록의 순서다.
 export const LANGS = [
-  { id: "ko", label: "한국어", short: "KO" },
-  { id: "en", label: "English", short: "EN" },
-  { id: "ja", label: "日本語", short: "JA" },
-  { id: "es", label: "Español", short: "ES" },
+  { id: "ko", label: "한국어" },
+  { id: "en", label: "English" },
+  { id: "ja", label: "日本語" },
+  { id: "es", label: "Español" },
 ] as const;
 export type Lang = (typeof LANGS)[number]["id"];
 
@@ -74,16 +74,14 @@ export function useDocumentMeta(title: string, description?: string) {
 
 const PICKER_LABEL: Record<Lang, string> = { ko: "언어", en: "Language", ja: "言語", es: "Idioma" };
 
-/** 지구 그림과 언어 약자. 누르면 기기의 기본 선택 목록이 뜬다 */
+/** 지구본 단추. 누르면 기기의 기본 선택 목록이 뜬다 */
 export function LangPicker() {
   const { lang, setLang } = useLang();
-  const current = LANGS.find((l) => l.id === lang)!;
   return (
     <label className="lang">
-      <svg viewBox="0 0 9 9" shapeRendering="crispEdges" aria-hidden="true">
-        <path d="M3 0h3v1H3zM2 1h1v1H2zM6 1h1v1H6zM1 2h1v1H1zM7 2h1v1H7zM0 3h1v3H0zM8 3h1v3H8zM1 6h1v1H1zM7 6h1v1H7zM2 7h1v1H2zM6 7h1v1H6zM3 8h3v1H3zM4 1h1v7H4zM1 4h7v1H1z" />
+      <svg viewBox="0 0 11 11" shapeRendering="crispEdges" aria-hidden="true">
+        <path d="M3 0h5v1h-5zM1 1h2v1h-2zM5 1h1v1h-1zM8 1h2v1h-2zM1 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM9 2h1v1h-1zM0 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM10 3h1v1h-1zM0 4h1v1h-1zM3 4h1v1h-1zM7 4h1v1h-1zM10 4h1v1h-1zM0 5h11v1h-11zM0 6h1v1h-1zM3 6h1v1h-1zM7 6h1v1h-1zM10 6h1v1h-1zM0 7h1v1h-1zM4 7h1v1h-1zM6 7h1v1h-1zM10 7h1v1h-1zM1 8h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM9 8h1v1h-1zM1 9h2v1h-2zM5 9h1v1h-1zM8 9h2v1h-2zM3 10h5v1h-5z" />
       </svg>
-      <span>{current.short}</span>
       <select value={lang} onChange={(e) => setLang(e.target.value as Lang)} aria-label={PICKER_LABEL[lang]}>
         {LANGS.map((l) => (
           <option key={l.id} value={l.id}>
