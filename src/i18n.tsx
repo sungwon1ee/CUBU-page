@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { reportVisit } from "./visit";
 
 // 앱과 같은 네 언어(갈무리 글꼴에 글자가 있는 언어만). 순서는 고르는 목록의 순서다.
 export const LANGS = [
@@ -36,6 +37,8 @@ export function LangProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     document.documentElement.lang = lang;
   }, [lang]);
+  // 처음 보여 준 언어로 한 번만 센다(나중에 바꾼 언어는 세지 않는다)
+  useEffect(() => reportVisit(lang), []); // eslint-disable-line react-hooks/exhaustive-deps
   const setLang = (l: Lang) => {
     setLangState(l);
     try {

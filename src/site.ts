@@ -3,6 +3,8 @@ export const site = {
   name: "CUBU",
   maker: "LEE SUNGWON",
   email: "malang.laboratory@gmail.com",
+  /** 앱이 쓰는 중계 서버. 웹사이트 방문 수도 여기에 센다 */
+  relayUrl: "https://43.202.127.57",
   year: 2026,
   /** App Store 주소. 출시 전에는 비워 둔다 */
   appStoreUrl: "",

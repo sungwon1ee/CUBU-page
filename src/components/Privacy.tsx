@@ -73,6 +73,9 @@ const BODY: Record<Lang, ReactNode> = {
         지웁니다. 운영을 위해 날짜별 방문 수, 방문한 집 수와 방문한 설치 ID를 집계하며, 여러 번 신고된 집은 운영자가 확인할 때까지 숨깁니다.
       </p>
 
+      <h2>웹사이트</h2>
+      <p>cubu.page는 쿠키를 쓰지 않고 브라우저에 아무것도 저장하지 않습니다. 방문 수를 세기 위해 페이지를 열 때 페이지 주소, 언어, 들어온 사이트 이름을 중계 서버로 보내고, 브라우저 정보로 기기 종류(휴대폰, 컴퓨터, 앱 안 브라우저)를 셉니다. 그날의 방문자 수는 IP 주소와 브라우저 정보를 하루마다 바뀌는 무작위 값과 섞은 해시로 세며, 이 해시는 2일 뒤 지웁니다. IP 주소 자체는 저장하지 않고, 남는 것은 날짜별 방문 수뿐입니다.</p>
+
       <h2>사용 통계와 운영 기록</h2>
       <p>
         동의한 경우 튜토리얼 단계, 스캔 시도와 결과, 티켓 잔액이 0이 된 시점, 상점 방문과 구매 결과, 놀러 가기 사용(창 열기, 방문 방식과 실패 이유,
@@ -129,6 +132,9 @@ const BODY: Record<Lang, ReactNode> = {
         visited and the install IDs that visited are counted, and a house reported several times is hidden until the operator reviews it.
       </p>
 
+      <h2>Website</h2>
+      <p>cubu.page uses no cookies and stores nothing in your browser. To count visits, opening a page sends the page address, the language and the name of the site you came from to the relay server, and the browser string is used to count the kind of device (phone, computer, in-app browser). Daily visitors are counted with a hash of your IP address and browser string mixed with a random value that changes every day; the hash is deleted after 2 days. The IP address itself is never stored, and only daily visit counts remain.</p>
+
       <h2>Usage statistics and service records</h2>
       <p>
         If you agree, tutorial steps, scan attempts and results, the moment your ticket balance reaches 0, shop visits and purchase results, and use of
@@ -176,6 +182,9 @@ const BODY: Record<Lang, ReactNode> = {
       <p>
         招待リンクを作ると、部屋の様子（家の間取り、もようがえ、部屋に置いたブロックとその名前）、家の名前、そして「地域を表示」をオンにしている場合は国と都市の名前が中継サーバーにアップロードされ、コードかリンクを持っている人が見られるようになります。コードなしで探せる一覧はありません。「公開をやめる」を押すとサーバーから削除します。運営のために日ごとの訪問数、訪問された家の数、訪問したインストールIDを集計し、何度も通報された家は運営者が確認するまで非表示にします。
       </p>
+
+      <h2>ウェブサイト</h2>
+      <p>cubu.pageはクッキーを使わず、ブラウザに何も保存しません。訪問数を数えるため、ページを開くとページのアドレス、言語、どのサイトから来たかを中継サーバーに送り、ブラウザ情報から端末の種類（スマートフォン、パソコン、アプリ内ブラウザ）を数えます。その日の訪問者数は、IPアドレスとブラウザ情報を毎日変わるランダムな値と混ぜたハッシュで数え、このハッシュは2日後に削除します。IPアドレスそのものは保存せず、残るのは日ごとの訪問数だけです。</p>
 
       <h2>利用統計と運営記録</h2>
       <p>
@@ -231,6 +240,9 @@ const BODY: Record<Lang, ReactNode> = {
         el servicio se cuentan las visitas diarias, el número de casas visitadas y los ID de instalación que visitaron, y una casa denunciada varias
         veces se oculta hasta que la revise el operador.
       </p>
+
+      <h2>Sitio web</h2>
+      <p>cubu.page no usa cookies ni guarda nada en tu navegador. Para contar las visitas, al abrir una página se envían al servidor intermediario la dirección de la página, el idioma y el nombre del sitio desde el que llegaste, y con los datos del navegador se cuenta el tipo de dispositivo (móvil, ordenador, navegador dentro de una app). Los visitantes de cada día se cuentan con un hash de tu dirección IP y los datos del navegador mezclados con un valor aleatorio que cambia cada día; ese hash se borra a los 2 días. La dirección IP no se guarda nunca y solo quedan los recuentos diarios de visitas.</p>
 
       <h2>Estadísticas de uso y registros del servicio</h2>
       <p>
