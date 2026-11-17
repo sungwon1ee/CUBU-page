@@ -6,11 +6,7 @@ export const site = {
   year: 2026,
   /** App Store 주소. 출시 전에는 비워 둔다 */
   appStoreUrl: "",
-  socials: [
-    { id: "instagram", label: "Instagram", url: "" },
-    { id: "x", label: "X", url: "" },
-    { id: "youtube", label: "YouTube", url: "" },
-  ],
+  socials: [{ id: "instagram", label: "Instagram", url: "https://www.instagram.com/malang.lab/" }],
 } as const;
 
 export type SocialId = (typeof site.socials)[number]["id"];

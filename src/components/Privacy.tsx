@@ -1,72 +1,254 @@
+import type { ReactNode } from "react";
+import { LangPicker, useDocumentMeta, useLang, type Lang } from "../i18n";
 import { site } from "../site";
+import { COMMON } from "../strings";
 import { Footer } from "./Footer";
 import { Grain } from "./Grain";
 
 // 앱 설정의 '개인정보 처리방침'(중계 서버의 privacy.html)과 같은 내용이다. 한쪽을 고치면 다른 쪽도 고친다.
+// 한국어가 원문이고 English·日本語·Español은 그 번역이다. 원문을 고치면 세 번역도 함께 고친다.
 export function Privacy() {
-  const mail = <a href={`mailto:${site.email}`}>{site.email}</a>;
+  const { lang } = useLang();
+  const title = COMMON[lang].privacy;
+  useDocumentMeta(`CUBU ${title}`);
   return (
     <>
       <Grain />
       <nav className="nav nav--scrolled nav--plain">
-        <a className="nav__brand" href="/">
+        <a className="nav__brand" href="/" aria-label={COMMON[lang].home}>
           <img src="/apple-touch-icon.png" alt="" width={36} height={36} />
           <span>CUBU</span>
         </a>
+        <div className="nav__end">
+          <LangPicker />
+        </div>
       </nav>
       <main className="doc">
-        <h1 className="title">개인정보 처리방침</h1>
-        <p>CUBU는 별도 회원가입 없이 사용합니다. 정보는 스캔 제작, 저장, 구매 처리, 서비스 운영과 선택적 사용 통계에 사용됩니다.</p>
-        <p>구매, 스캔 또는 개인정보에 관해 문의하려면 {mail}로 연락해 주세요.</p>
-
-        <h2>사진과 위치</h2>
-        <p>
-          사진을 찍거나 보관함에서 선택하면 기기에서 대상을 분리합니다. 외부 AI 사진 전송에 동의하면 일반 스캔에서 대상 이미지가 CUBU 중계
-          서버를 거쳐 OpenAI로 전달되어 이름과 특징을 읽습니다. 고품질 스캔에서는 대상 이미지와 마스크가 fal에도 전달되어 3D 모델을 만듭니다.
-          중계 서버 데이터베이스에 원본 사진이나 전송 이미지가 저장되지 않습니다. 고품질 작업 ID와 처리 상태는 약 2일간 남으며, AI 제공업체의
-          처리와 보관에는 <a href="https://platform.openai.com/docs/guides/your-data">OpenAI API의 데이터 처리 정책</a>과{" "}
-          <a href="https://fal.ai/privacy">fal의 개인정보 처리방침</a>이 적용됩니다.
-        </p>
-        <p>
-          사진과 도감은 기기에 저장합니다. 위치 권한을 허용하면 촬영 위치 표시와 방의 날씨에 사용하며, 일기예보 조회에 위치를{" "}
-          <a href="https://open-meteo.com/">Open-Meteo</a>로 전달합니다. 스캔을 사용하기 위해 위치 권한을 켤 필요는 없습니다.
-        </p>
-
-        <h2>구매, 저장, 광고</h2>
-        <p>
-          Apple이 결제를 처리합니다. 거래 검증과 집계에 거래 ID, 상품, 가격, 통화, 구매 시각 및 무작위 설치 ID를 사용합니다. CUBU는 카드 번호를
-          받지 않습니다. Apple iCloud를 사용할 수 있는 경우 지갑과 방 상태가 같은 Apple 계정의 기기 사이에 동기화됩니다. 보상형 광고에는{" "}
-          <a href="https://policies.google.com/privacy">Google AdMob</a>을 사용합니다. Google은 광고 제공, 측정, 부정 사용 방지를 위해 IP 주소,
-          기기 및 광고 상호작용 정보를 처리할 수 있습니다.
-        </p>
-
-        <h2>놀러 가기</h2>
-        <p>
-          초대 링크를 만들면 방의 모습(집 구조, 꾸밈, 방에 둔 블록과 이름), 집 이름, 그리고 ‘지역 보여 주기’를 켜 두었다면 나라와 도시 이름이
-          중계 서버에 올라가고, 코드나 링크를 가진 사람이 볼 수 있습니다. 코드 없이 찾아볼 수 있는 목록은 없습니다. ‘그만 보여 주기’를 누르면
-          서버에서 지웁니다. 운영을 위해 날짜별 방문 수, 방문한 집 수와 방문한 설치 ID를 집계하며, 여러 번 신고된 집은 운영자가 확인할 때까지
-          숨깁니다.
-        </p>
-
-        <h2>사용 통계와 운영 기록</h2>
-        <p>
-          동의한 경우 튜토리얼 단계, 스캔 시도와 결과, 티켓 잔액이 0이 된 시점, 상점 방문과 구매 결과, 놀러 가기 사용(창 열기, 방문 방식과 실패
-          이유, 구경한 시간, 초대 링크 만들기·보내기)을 별도의 무작위 분석 ID로 수집합니다. 통계에 사진, 위치, Apple 계정 정보가 포함되지
-          않습니다. 운영상 중계 서버는 요청 제한과 비용 관리를 위해 설치 ID, IP 주소 및 서비스 처리 기록을 사용합니다. 사용량 제한용 읽기 기록과
-          작업 기록은 짧은 기간 보관하며, 비용 및 거래 기록은 운영과 정산에 필요한 기간 동안 보관합니다. 사용 통계는 최대 90일 동안 집계에
-          사용합니다.
-        </p>
-
-        <h2>동의 철회와 삭제 요청</h2>
-        <p>
-          설정의 ‘지원 및 개인정보’에서 외부 AI 사진 전송과 사용 통계 공유를 끌 수 있습니다. 위치와 사진 접근 권한은 iOS 설정에서 바꿀 수
-          있습니다. 이미 전송된 데이터의 삭제 또는 처리에 관한 문의는 {mail}로 보내 주세요.
-        </p>
-        <p>
-          <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">이용약관</a>
-        </p>
+        <h1 className="title">{title}</h1>
+        {BODY[lang]}
       </main>
       <Footer />
     </>
   );
 }
+
+const mail = <a href={`mailto:${site.email}`}>{site.email}</a>;
+const a = (href: string, text: string) => <a href={href}>{text}</a>;
+const OPENAI = "https://platform.openai.com/docs/guides/your-data";
+const FAL = "https://fal.ai/privacy";
+const METEO = "https://open-meteo.com/";
+const ADMOB = "https://policies.google.com/privacy";
+const EULA = "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/";
+
+const BODY: Record<Lang, ReactNode> = {
+  ko: (
+    <>
+      <p>CUBU는 별도 회원가입 없이 사용합니다. 정보는 스캔 제작, 저장, 구매 처리, 서비스 운영과 선택적 사용 통계에 사용됩니다.</p>
+      <p>구매, 스캔 또는 개인정보에 관해 문의하려면 {mail}로 연락해 주세요.</p>
+
+      <h2>사진과 위치</h2>
+      <p>
+        사진을 찍거나 보관함에서 선택하면 기기에서 대상을 분리합니다. 외부 AI 사진 전송에 동의하면 일반 스캔에서 대상 이미지가 CUBU 중계 서버를
+        거쳐 OpenAI로 전달되어 이름과 특징을 읽습니다. 고품질 스캔에서는 대상 이미지와 마스크가 fal에도 전달되어 3D 모델을 만듭니다. 중계 서버
+        데이터베이스에 원본 사진이나 전송 이미지가 저장되지 않습니다. 고품질 작업 ID와 처리 상태는 약 2일간 남으며, AI 제공업체의 처리와 보관에는{" "}
+        {a(OPENAI, "OpenAI API의 데이터 처리 정책")}과 {a(FAL, "fal의 개인정보 처리방침")}이 적용됩니다.
+      </p>
+      <p>
+        사진과 도감은 기기에 저장합니다. 위치 권한을 허용하면 촬영 위치 표시와 방의 날씨에 사용하며, 일기예보 조회에 위치를 {a(METEO, "Open-Meteo")}로
+        전달합니다. 스캔을 사용하기 위해 위치 권한을 켤 필요는 없습니다.
+      </p>
+
+      <h2>구매, 저장, 광고</h2>
+      <p>
+        Apple이 결제를 처리합니다. 거래 검증과 집계에 거래 ID, 상품, 가격, 통화, 구매 시각 및 무작위 설치 ID를 사용합니다. CUBU는 카드 번호를 받지
+        않습니다. Apple iCloud를 사용할 수 있는 경우 지갑과 방 상태가 같은 Apple 계정의 기기 사이에 동기화됩니다. 보상형 광고에는{" "}
+        {a(ADMOB, "Google AdMob")}을 사용합니다. Google은 광고 제공, 측정, 부정 사용 방지를 위해 IP 주소, 기기 및 광고 상호작용 정보를 처리할 수
+        있습니다.
+      </p>
+
+      <h2>놀러 가기</h2>
+      <p>
+        초대 링크를 만들면 방의 모습(집 구조, 꾸밈, 방에 둔 블록과 이름), 집 이름, 그리고 ‘지역 보여 주기’를 켜 두었다면 나라와 도시 이름이 중계
+        서버에 올라가고, 코드나 링크를 가진 사람이 볼 수 있습니다. 코드 없이 찾아볼 수 있는 목록은 없습니다. ‘그만 보여 주기’를 누르면 서버에서
+        지웁니다. 운영을 위해 날짜별 방문 수, 방문한 집 수와 방문한 설치 ID를 집계하며, 여러 번 신고된 집은 운영자가 확인할 때까지 숨깁니다.
+      </p>
+
+      <h2>사용 통계와 운영 기록</h2>
+      <p>
+        동의한 경우 튜토리얼 단계, 스캔 시도와 결과, 티켓 잔액이 0이 된 시점, 상점 방문과 구매 결과, 놀러 가기 사용(창 열기, 방문 방식과 실패 이유,
+        구경한 시간, 초대 링크 만들기·보내기)을 별도의 무작위 분석 ID로 수집합니다. 통계에 사진, 위치, Apple 계정 정보가 포함되지 않습니다. 운영상
+        중계 서버는 요청 제한과 비용 관리를 위해 설치 ID, IP 주소 및 서비스 처리 기록을 사용합니다. 사용량 제한용 읽기 기록과 작업 기록은 짧은 기간
+        보관하며, 비용 및 거래 기록은 운영과 정산에 필요한 기간 동안 보관합니다. 사용 통계는 최대 90일 동안 집계에 사용합니다.
+      </p>
+
+      <h2>동의 철회와 삭제 요청</h2>
+      <p>
+        설정의 ‘지원 및 개인정보’에서 외부 AI 사진 전송과 사용 통계 공유를 끌 수 있습니다. 위치와 사진 접근 권한은 iOS 설정에서 바꿀 수 있습니다.
+        이미 전송된 데이터의 삭제 또는 처리에 관한 문의는 {mail}로 보내 주세요.
+      </p>
+      <p>{a(EULA, "이용약관")}</p>
+    </>
+  ),
+  en: (
+    <>
+      <p>
+        This is a translation of the Korean policy. If the two differ, the Korean version applies.
+      </p>
+      <p>
+        CUBU works without creating an account. Information is used to make scans, save your data, process purchases, run the service and, if you
+        agree, for usage statistics.
+      </p>
+      <p>For questions about purchases, scans or your personal information, contact {mail}.</p>
+
+      <h2>Photos and location</h2>
+      <p>
+        When you take a photo or pick one from your library, the subject is cut out on your device. If you agree to sending photos to an external AI,
+        a normal scan sends the subject image through the CUBU relay server to OpenAI, which reads its name and features. A high-quality scan also
+        sends the subject image and its mask to fal, which builds a 3D model. Original photos and sent images are not stored in the relay server's
+        database. High-quality job IDs and their status are kept for about 2 days. Processing and retention by the AI providers are covered by{" "}
+        {a(OPENAI, "OpenAI's API data usage policy")} and {a(FAL, "fal's privacy policy")}.
+      </p>
+      <p>
+        Photos and your album are stored on your device. If you allow location access, it is used to show where a photo was taken and for the weather
+        in your room, and your location is sent to {a(METEO, "Open-Meteo")} to look up the forecast. You do not need location access to scan.
+      </p>
+
+      <h2>Purchases, sync and ads</h2>
+      <p>
+        Apple processes payments. The transaction ID, product, price, currency, purchase time and a random install ID are used to verify and count
+        transactions. CUBU never receives card numbers. When Apple iCloud is available, your wallet and room are synced between devices on the same
+        Apple Account. Rewarded ads use {a(ADMOB, "Google AdMob")}. Google may process your IP address, device information and ad interactions to
+        serve and measure ads and to prevent fraud.
+      </p>
+
+      <h2>Visit</h2>
+      <p>
+        When you create an invite link, your room (house layout, decoration, the blocks in it and their names), your house name and, if "Show my
+        region" is on, your country and city are uploaded to the relay server and can be seen by anyone with the code or link. There is no list you can
+        browse without a code. Tapping "Stop sharing" deletes it from the server. To run the service, daily visit counts, the number of houses
+        visited and the install IDs that visited are counted, and a house reported several times is hidden until the operator reviews it.
+      </p>
+
+      <h2>Usage statistics and service records</h2>
+      <p>
+        If you agree, tutorial steps, scan attempts and results, the moment your ticket balance reaches 0, shop visits and purchase results, and use of
+        Visit (opening it, how you visited and why it failed, time spent looking around, creating and sending invite links) are collected under a
+        separate random analytics ID. Statistics never include photos, location or Apple Account information. To run the service, the relay server
+        uses install IDs, IP addresses and processing records for rate limiting and cost control. Read records for rate limits and job records are
+        kept for a short time; cost and transaction records are kept as long as needed for operations and accounting. Usage statistics are used in
+        aggregates for up to 90 days.
+      </p>
+
+      <h2>Withdrawing consent and deletion requests</h2>
+      <p>
+        In Settings, under "Support &amp; Privacy", you can turn off "Send photos to outside AI" and "Share usage stats". Location and photo
+        access can be changed in iOS Settings. For deletion or handling of data that has already been sent, write to {mail}.
+      </p>
+      <p>{a(EULA, "Terms of use")}</p>
+    </>
+  ),
+  ja: (
+    <>
+      <p>これは韓国語の方針の翻訳です。内容に違いがある場合は韓国語版が優先されます。</p>
+      <p>
+        CUBUは会員登録なしで使えます。情報はスキャンの作成、保存、購入の処理、サービスの運営、そして同意した場合の利用統計に使われます。
+      </p>
+      <p>購入、スキャン、個人情報についてのお問い合わせは {mail} までご連絡ください。</p>
+
+      <h2>写真と位置情報</h2>
+      <p>
+        写真を撮るかライブラリから選ぶと、端末上で被写体を切り抜きます。外部AIへの写真送信に同意している場合、通常のスキャンでは被写体の画像がCUBU中継サーバーを経由してOpenAIに送られ、名前と特徴を読み取ります。高品質スキャンでは被写体の画像とマスクがfalにも送られ、3Dモデルを作ります。元の写真や送信した画像は中継サーバーのデータベースに保存されません。高品質処理のジョブIDと処理状態は約2日間残ります。AI提供会社での処理と保管には
+        {a(OPENAI, "OpenAI APIのデータ利用ポリシー")}と{a(FAL, "falのプライバシーポリシー")}が適用されます。
+      </p>
+      <p>
+        写真と図鑑は端末に保存されます。位置情報を許可すると、撮影場所の表示と部屋の天気に使い、天気予報の取得のために位置を
+        {a(METEO, "Open-Meteo")}に送ります。スキャンを使うために位置情報を許可する必要はありません。
+      </p>
+
+      <h2>購入、同期、広告</h2>
+      <p>
+        決済はAppleが処理します。取引の確認と集計に、取引ID、商品、価格、通貨、購入日時、ランダムなインストールIDを使います。CUBUがカード番号を受け取ることはありません。Apple
+        iCloudが使える場合、ウォレットと部屋の状態は同じApple Accountの端末間で同期されます。リワード広告には{a(ADMOB, "Google AdMob")}
+        を使います。Googleは広告の配信、測定、不正利用の防止のために、IPアドレス、端末情報、広告とのやり取りを処理することがあります。
+      </p>
+
+      <h2>遊びに行く</h2>
+      <p>
+        招待リンクを作ると、部屋の様子（家の間取り、もようがえ、部屋に置いたブロックとその名前）、家の名前、そして「地域を表示」をオンにしている場合は国と都市の名前が中継サーバーにアップロードされ、コードかリンクを持っている人が見られるようになります。コードなしで探せる一覧はありません。「公開をやめる」を押すとサーバーから削除します。運営のために日ごとの訪問数、訪問された家の数、訪問したインストールIDを集計し、何度も通報された家は運営者が確認するまで非表示にします。
+      </p>
+
+      <h2>利用統計と運営記録</h2>
+      <p>
+        同意した場合、チュートリアルの段階、スキャンの試行と結果、チケット残高が0になった時点、ショップの訪問と購入結果、遊びに行くの利用（画面を開く、訪問の方法と失敗の理由、見て回った時間、招待リンクの作成・送信）を、別のランダムな分析IDで収集します。統計に写真、位置情報、Apple
+        Accountの情報は含まれません。運営上、中継サーバーはリクエスト制限と費用管理のためにインストールID、IPアドレス、処理記録を使います。利用制限のための読み取り記録とジョブ記録は短期間保管し、費用と取引の記録は運営と精算に必要な期間保管します。利用統計は最大90日間集計に使います。
+      </p>
+
+      <h2>同意の撤回と削除の依頼</h2>
+      <p>
+        設定の「サポートとプライバシー」で、「外部AIへの写真送信」と「利用統計の共有」をオフにできます。位置情報と写真へのアクセスはiOSの設定で変更できます。すでに送信されたデータの削除や取り扱いについては
+        {mail} までお問い合わせください。
+      </p>
+      <p>{a(EULA, "利用規約")}</p>
+    </>
+  ),
+  es: (
+    <>
+      <p>Esta es una traducción de la política en coreano. Si hay diferencias, prevalece la versión en coreano.</p>
+      <p>
+        CUBU se usa sin crear una cuenta. La información se usa para crear escaneos, guardar tus datos, procesar compras, operar el servicio y, si lo
+        aceptas, para estadísticas de uso.
+      </p>
+      <p>Para preguntas sobre compras, escaneos o tus datos personales, escribe a {mail}.</p>
+
+      <h2>Fotos y ubicación</h2>
+      <p>
+        Cuando haces una foto o eliges una de tu fototeca, el sujeto se recorta en tu dispositivo. Si aceptas enviar fotos a una IA externa, en un
+        escaneo normal la imagen del sujeto pasa por el servidor intermediario de CUBU hasta OpenAI, que lee su nombre y sus rasgos. En un escaneo de
+        alta calidad, la imagen del sujeto y su máscara también se envían a fal, que crea un modelo 3D. Las fotos originales y las imágenes enviadas no
+        se guardan en la base de datos del servidor intermediario. Los ID de los trabajos de alta calidad y su estado se conservan unos 2 días. El
+        tratamiento y la conservación por parte de los proveedores de IA se rigen por {a(OPENAI, "la política de datos de la API de OpenAI")} y{" "}
+        {a(FAL, "la política de privacidad de fal")}.
+      </p>
+      <p>
+        Las fotos y el álbum se guardan en tu dispositivo. Si permites el acceso a la ubicación, se usa para mostrar dónde se hizo la foto y para el
+        tiempo de tu habitación, y la ubicación se envía a {a(METEO, "Open-Meteo")} para consultar el pronóstico. No necesitas activar la ubicación para
+        escanear.
+      </p>
+
+      <h2>Compras, sincronización y anuncios</h2>
+      <p>
+        Apple procesa los pagos. Para verificar y contabilizar las transacciones se usan el ID de transacción, el producto, el precio, la moneda, la
+        hora de compra y un ID de instalación aleatorio. CUBU nunca recibe números de tarjeta. Si Apple iCloud está disponible, tu monedero y tu
+        habitación se sincronizan entre los dispositivos de la misma cuenta de Apple. Los anuncios con recompensa usan {a(ADMOB, "Google AdMob")}.
+        Google puede tratar tu dirección IP, información del dispositivo y tus interacciones con anuncios para mostrarlos, medirlos y evitar fraudes.
+      </p>
+
+      <h2>Visitar</h2>
+      <p>
+        Al crear un enlace de invitación, tu habitación (la distribución de la casa, la decoración, los bloques que hay en ella y sus nombres), el
+        nombre de tu casa y, si tienes activado «Mostrar mi región», tu país y ciudad se suben al servidor intermediario y cualquiera con el código o el
+        enlace puede verlos. No existe ninguna lista que se pueda explorar sin código. Al tocar «Dejar de compartir» se borra del servidor. Para operar
+        el servicio se cuentan las visitas diarias, el número de casas visitadas y los ID de instalación que visitaron, y una casa denunciada varias
+        veces se oculta hasta que la revise el operador.
+      </p>
+
+      <h2>Estadísticas de uso y registros del servicio</h2>
+      <p>
+        Si lo aceptas, se recogen con un ID de análisis aleatorio aparte los pasos del tutorial, los intentos y resultados de escaneo, el momento en
+        que tu saldo de tickets llega a 0, las visitas a la tienda y los resultados de compra, y el uso de Visitar (abrirlo, cómo visitaste y por qué
+        falló, el tiempo que pasaste mirando, crear y enviar enlaces de invitación). Las estadísticas nunca incluyen fotos, ubicación ni datos de tu
+        cuenta de Apple. Para operar el servicio, el servidor intermediario usa ID de instalación, direcciones IP y registros de procesamiento para
+        limitar peticiones y controlar costes. Los registros de lectura para los límites de uso y los registros de trabajos se guardan poco tiempo; los
+        registros de costes y transacciones se guardan el tiempo necesario para la operación y la contabilidad. Las estadísticas de uso se agregan
+        durante un máximo de 90 días.
+      </p>
+
+      <h2>Retirar el consentimiento y pedir el borrado</h2>
+      <p>
+        En Ajustes, en «Ayuda y privacidad», puedes desactivar «Enviar fotos a IA externa» y «Compartir estadísticas». El acceso a la
+        ubicación y a las fotos se cambia en los Ajustes de iOS. Para borrar o consultar el tratamiento de datos ya enviados, escribe a {mail}.
+      </p>
+      <p>{a(EULA, "Términos de uso")}</p>
+    </>
+  ),
+};
