@@ -818,3 +818,66 @@ img {
   html { scroll-behavior: auto; }
   .cloud { animation: none; }
 }
+
+/* ───────── 놀러 가기 초대(/r/코드) ───────── */
+.invite {
+  min-height: calc(100svh - 70px);
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 48px;
+  padding: 72px var(--gutter) 88px;
+  background: radial-gradient(circle at 50% 110%, #f5aa55 0 30%, #f0a04c 30% 52%, #ec9644 52% 76%, #e88d3e 76%);
+  text-align: center;
+}
+.invite__card {
+  width: min(100%, 400px);
+  padding: 36px 28px 28px;
+  transform: rotate(-1.2deg);
+  box-shadow: 6px 8px 0 rgb(43 29 22 / 0.3);
+}
+.invite__card p {
+  font: 400 14px/1.75 "Galmuri14", var(--pixel);
+  color: var(--walnut);
+}
+.invite__title {
+  font: 700 22px/1.4 var(--pixel);
+  margin-bottom: 8px;
+}
+.invite .invite__code {
+  font: 700 44px/1 var(--pixel);
+  letter-spacing: 0.12em;
+  color: var(--cocoa);
+  margin: 24px 0 26px;
+}
+/* 이 페이지의 단 하나뿐인 주된 동작이라 호박색 */
+.invite__open {
+  display: block;
+  padding: 16px;
+  font: 700 22px/1 var(--pixel);
+  color: var(--cocoa);
+  text-decoration: none;
+  background: var(--amber);
+  border: var(--dot) solid var(--cocoa);
+  box-shadow: 4px 4px 0 var(--cocoa);
+  transition: transform 0.08s steps(2), box-shadow 0.08s steps(2);
+}
+.invite__open:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+.invite__open:focus-visible {
+  outline: var(--dot) solid var(--cocoa);
+  outline-offset: var(--dot);
+}
+.invite .invite__hint {
+  margin-top: 18px;
+  color: var(--wood);
+}
+.invite__get {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  font: 400 14px/1.4 "Galmuri14", var(--pixel);
+  color: var(--cocoa);
+}

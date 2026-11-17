@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["3TKCZPMY42.com.sungwon.cubu"],
+        "components": [{ "/": "/r/*", "comment": "놀러 가기 초대 링크" }]
+      }
+    ]
+  }
+}
