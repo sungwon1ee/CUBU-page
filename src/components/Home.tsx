@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { mountHero } from "../cubu/heroStage";
 import { mountScan } from "../cubu/scanStage";
 import { mountDex, type DexModel } from "../cubu/dexStage";
-import { kong, nabi, scanned, type ScannedCreature } from "../cubu/rig";
-import olli from "../cubu/creatures/olli.json";
+import { kong, nabi } from "../cubu/rig";
 import { ITEM_TYPES } from "../cubu/itemTypes";
 import camera from "../cubu/objects/camera.json";
 import cup from "../cubu/objects/cup.json";
@@ -132,11 +131,10 @@ function Scan() {
   );
 }
 
-// 도감 카드. 리트리버와 물건들은 실제 사진을 앱의 제작 경로로 돌려 만든 블록이고, 콩이와 나비는 앱에 처음부터 있는 친구다.
+// 도감 카드. 물건들은 실제 사진을 앱의 제작 경로로 돌려 만든 블록이고, 강아지와 고양이는 앱에 처음부터 있는 친구다.
 const DEX: { name: string; kind: string; model: DexModel }[] = [
-  { name: "리트리버", kind: "강아지", model: { rig: scanned(olli as ScannedCreature) } },
-  { name: "콩이", kind: "강아지", model: { rig: kong() } },
-  { name: "나비", kind: "고양이", model: { rig: nabi() } },
+  { name: "강아지", kind: "강아지", model: { rig: kong() } },
+  { name: "고양이", kind: "고양이", model: { rig: nabi() } },
   { name: "오토바이", kind: "물건", model: { voxels: motorcycle } },
   { name: "감자튀김", kind: "과자", model: { voxels: fries } },
   { name: "우롱차 페트병", kind: "물병", model: { voxels: oolong } },

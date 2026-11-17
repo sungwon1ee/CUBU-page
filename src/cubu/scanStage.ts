@@ -268,6 +268,7 @@ function run(
     // 좁은 화면에서는 화면 폭 가득 퍼지지 않게 친구의 몸 둘레 안으로 모은다
     const around = stacked ? ((span.right - span.left) * 0.64) / (0.78 * pxPerUnit) : 1;
     reach = Math.max(0.3, Math.min(1, around, (at.width * 0.48) / (0.78 * pxPerUnit), (feet - 8) / (1.3 * pxPerUnit)));
+    if (stacked) reach *= 1.3; // 좁은 화면에서는 조금 더 넓게 퍼지게
     aim();
 
     // 칸은 카메라를 마주 보는 평면 위에 놓는다(사진에 붙어 있는 것처럼 보이게)
