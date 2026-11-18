@@ -152,6 +152,9 @@ img {
   align-items: center;
   gap: 12px;
 }
+.nav__badge {
+  display: flex; /* 블록이면 배지 아래에 글줄 여백이 생겨 지구본보다 키가 커진다 */
+}
 
 /* 언어 고르기: 지구본 단추. 위에 투명한 기본 선택 상자를 덮어 누르면 기기의 목록이 뜬다 */
 .lang {
