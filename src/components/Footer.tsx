@@ -1,10 +1,10 @@
-import { siInstagram } from "simple-icons";
+import { siGithub, siInstagram } from "simple-icons";
 import { useText } from "../i18n";
 import { site, type SocialId } from "../site";
 import { COMMON } from "../strings";
 
 // 계정을 늘리면 site.ts의 socials와 여기(simple-icons 그림)에 함께 넣는다
-const ICONS: Record<SocialId, string> = { instagram: siInstagram.path };
+const ICONS: Record<SocialId, string> = { instagram: siInstagram.path, github: siGithub.path };
 
 export function Footer() {
   const t = useText(COMMON);
