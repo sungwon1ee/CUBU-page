@@ -216,7 +216,8 @@ export class Rig {
       const cw = p.bodyW + 1;
       const collar = uniformFaces(s.accent, cw, 1, 2, seed());
       collar.front.set(Math.floor(cw / 2), 0, hex(0xf2c14e));
-      this.add(this.breath, [0, bh - 1.5, bl / 2 - 1.5], cw, 1, 2, collar);
+      // 머리 폭이 목줄 폭과 같으면 옆면이 같은 평면에서 겹쳐 깜빡인다. 목줄을 아주 조금 좁혀 머리 안쪽으로 넣는다
+      this.add(this.breath, [0, bh - 1.5, bl / 2 - 1.5], cw - 0.08, 1, 2, collar);
     }
 
     // 다리
