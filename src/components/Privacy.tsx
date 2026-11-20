@@ -58,6 +58,18 @@ const BODY: Record<Lang, ReactNode> = {
         전달합니다. 스캔을 사용하기 위해 위치 권한을 켤 필요는 없습니다.
       </p>
 
+      <h2>얼굴 데이터</h2>
+      <p>
+        셀카를 찍을 때 CUBU는 전면 카메라를 켜기 위해 ARKit 얼굴 추적(TrueDepth 카메라)을 사용하지만, 얼굴 메시, 표정 값, 깊이 지도처럼 TrueDepth가
+        만드는 얼굴 정보는 읽거나 저장하거나 전송하지 않습니다. 앱이 쓰는 것은 화면에 보이는 일반 카메라 사진뿐입니다. 사람이 찍히면 기기 안에서
+        Apple Vision으로 얼굴과 눈, 입, 얼굴 윤곽의 위치를 찾아 캐릭터 얼굴의 비율과 색을 정하며, 이 값은 캐릭터 모양으로만 쓰이고 기기에 남습니다.
+        외부 AI 사진 전송에 동의한 경우에는 배경을 지운 사진과 얼굴 부분을 확대한 사진이 CUBU 중계 서버를 거쳐 OpenAI로 전달되어 머리 모양, 옷, 안경
+        같은 겉모습을 읽습니다. 중계 서버는 이 사진을 저장하지 않고, OpenAI에는 저장 기능을 끈 채로 보내며, OpenAI의 처리에는{" "}
+        {a(OPENAI, "OpenAI API의 데이터 처리 정책")}이 적용됩니다. 사람 사진은 고품질 스캔(fal)에 쓰이지 않습니다. 얼굴 데이터는 사람을 식별하거나
+        인증하는 데, 광고나 마케팅에 쓰지 않으며, 판매하지 않고 여기 적은 경우 외에는 제3자와 공유하지 않습니다. 촬영 원본은 기기에만 저장되고
+        iCloud나 놀러 가기로 올라가지 않으며(방문자에게는 블록 캐릭터만 보입니다), 캐릭터를 삭제하거나 앱을 지우면 함께 지워집니다.
+      </p>
+
       <h2>구매, 저장, 광고</h2>
       <p>
         Apple이 결제를 처리합니다. 거래 검증과 집계에 거래 ID, 상품, 가격, 통화, 구매 시각 및 무작위 설치 ID를 사용합니다. CUBU는 카드 번호를 받지
@@ -116,6 +128,21 @@ const BODY: Record<Lang, ReactNode> = {
         in your room, and your location is sent to {a(METEO, "Open-Meteo")} to look up the forecast. You do not need location access to scan.
       </p>
 
+      <h2>Face data</h2>
+      <p>
+        When you take a selfie, CUBU turns on the front camera through ARKit face tracking (the TrueDepth camera), but it does not read, store or
+        send any face information that TrueDepth produces, such as face meshes, expression values or depth maps. The app uses only the ordinary
+        camera picture shown on screen. When a person is in the photo, Apple's Vision framework finds the face and the positions of the eyes, mouth
+        and face outline on your device to set the proportions and colors of the character's face; these values are used only for the character's
+        shape and stay on your device. If you agree to sending photos to an external AI, the cut-out photo and a close-up of the face are sent through
+        the CUBU relay server to OpenAI, which reads the person's look (hairstyle, clothes, glasses and so on). The relay server does not store these
+        images, they are sent to OpenAI with storage turned off, and processing by OpenAI is covered by{" "}
+        {a(OPENAI, "OpenAI's API data usage policy")}. Photos of people are never used for high-quality scans (fal). Face data is not used to
+        identify or authenticate anyone or for advertising or marketing, is not sold, and is not shared with third parties except as described here.
+        Original photos are stored only on your device and are never uploaded to iCloud or Visit (visitors see only the block character), and they
+        are deleted when you delete the character or the app.
+      </p>
+
       <h2>Purchases, sync and ads</h2>
       <p>
         Apple processes payments. The transaction ID, product, price, currency, purchase time and a random install ID are used to verify and count
@@ -171,6 +198,13 @@ const BODY: Record<Lang, ReactNode> = {
         {a(METEO, "Open-Meteo")}に送ります。スキャンを使うために位置情報を許可する必要はありません。
       </p>
 
+      <h2>顔のデータ</h2>
+      <p>
+        セルフィーを撮るとき、CUBUは前面カメラをオンにするためにARKitの顔トラッキング（TrueDepthカメラ）を使いますが、顔のメッシュ、表情の値、深度マップなど、TrueDepthが作る顔の情報を読み取ったり、保存したり、送信したりすることはありません。アプリが使うのは画面に映る通常のカメラ写真だけです。人が写っている場合は、端末上でApple
+        Visionが顔と目、口、顔の輪郭の位置を見つけ、キャラクターの顔の比率と色を決めます。この値はキャラクターの形にだけ使われ、端末に残ります。外部AIへの写真送信に同意している場合は、背景を消した写真と顔を拡大した写真がCUBU中継サーバーを経由してOpenAIに送られ、髪型、服、メガネなどの見た目を読み取ります。中継サーバーはこれらの写真を保存せず、OpenAIには保存機能をオフにして送ります。OpenAIでの処理には
+        {a(OPENAI, "OpenAI APIのデータ利用ポリシー")}が適用されます。人の写真は高品質スキャン（fal）には使われません。顔のデータを人の識別や認証、広告やマーケティングに使うことはなく、販売せず、ここに書いた場合を除いて第三者と共有しません。元の写真は端末にだけ保存され、iCloudや遊びに行くにアップロードされることはなく（訪問者に見えるのはブロックのキャラクターだけです）、キャラクターを削除するかアプリを削除すると一緒に消えます。
+      </p>
+
       <h2>購入、同期、広告</h2>
       <p>
         決済はAppleが処理します。取引の確認と集計に、取引ID、商品、価格、通貨、購入日時、ランダムなインストールIDを使います。CUBUがカード番号を受け取ることはありません。Apple
@@ -222,6 +256,21 @@ const BODY: Record<Lang, ReactNode> = {
         Las fotos y el álbum se guardan en tu dispositivo. Si permites el acceso a la ubicación, se usa para mostrar dónde se hizo la foto y para el
         tiempo de tu habitación, y la ubicación se envía a {a(METEO, "Open-Meteo")} para consultar el pronóstico. No necesitas activar la ubicación para
         escanear.
+      </p>
+
+      <h2>Datos faciales</h2>
+      <p>
+        Al hacer un selfi, CUBU activa la cámara frontal mediante el seguimiento facial de ARKit (la cámara TrueDepth), pero no lee, guarda ni envía
+        ninguna información facial que genere TrueDepth, como mallas faciales, valores de expresión o mapas de profundidad. La app solo usa la foto
+        normal de la cámara que se ve en pantalla. Si en la foto aparece una persona, el framework Vision de Apple localiza en tu dispositivo la cara y
+        la posición de los ojos, la boca y el contorno de la cara para fijar las proporciones y los colores de la cara del personaje; esos valores solo
+        se usan para la forma del personaje y se quedan en tu dispositivo. Si aceptas enviar fotos a una IA externa, la foto recortada y un primer plano
+        de la cara pasan por el servidor intermediario de CUBU hasta OpenAI, que lee el aspecto de la persona (peinado, ropa, gafas, etc.). El
+        servidor intermediario no guarda estas imágenes, se envían a OpenAI con el almacenamiento desactivado, y su tratamiento por OpenAI se rige por{" "}
+        {a(OPENAI, "la política de datos de la API de OpenAI")}. Las fotos de personas nunca se usan en escaneos de alta calidad (fal). Los datos
+        faciales no se usan para identificar ni autenticar a nadie ni para publicidad o marketing, no se venden y no se comparten con terceros salvo
+        como se describe aquí. Las fotos originales se guardan solo en tu dispositivo, nunca se suben a iCloud ni a Visitar (los visitantes solo ven el
+        personaje de bloques) y se borran al eliminar el personaje o la app.
       </p>
 
       <h2>Compras, sincronización y anuncios</h2>
