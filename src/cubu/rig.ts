@@ -402,6 +402,14 @@ export class Rig {
     this.hearts.push({ node, age: 0 });
   }
 
+  /** 혼자서, 또는 불렸을 때: 폴짝 뛰고 귀를 쫑긋한다(하트는 없다). */
+  perk(height = 2) {
+    this.hopHeight = height;
+    if (this.hopTime < 0) this.hopTime = 0;
+    if (this.twitch < 0) this.twitch = 0;
+    this.wagLeft = Math.max(this.wagLeft, 0.09 * 2 * 3);
+  }
+
   wag(times = 4) {
     this.wagLeft = Math.max(this.wagLeft, 0.09 * 2 * times);
   }
