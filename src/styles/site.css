@@ -415,13 +415,6 @@ img {
   aspect-ratio: 1;
   object-fit: cover;
 }
-.snap__photo--empty {
-  display: grid;
-  place-items: center;
-  font: 400 14px/1 "Galmuri14", var(--pixel);
-  color: var(--wood);
-  background: repeating-linear-gradient(135deg, #ecdcb9 0 9px, #e4d1a9 9px 18px);
-}
 .tape {
   position: absolute;
   top: -15px;
@@ -620,10 +613,6 @@ img {
   margin: 48px auto 0;
   font: 400 14px/1.4 "Galmuri14", var(--pixel);
   color: rgb(248 233 207 / 0.74);
-}
-.shots__slot {
-  aspect-ratio: 804 / 1500;
-  color: var(--wood);
 }
 .shots {
   display: flex;

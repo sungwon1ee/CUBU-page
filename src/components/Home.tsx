@@ -272,8 +272,8 @@ function Room() {
         <li>
           <figure className="snap">
             <span className="tape" />
-            {/* 실제 기기에서 찍은 AR 화면이 들어갈 자리 */}
-            <div className="snap__photo snap__photo--empty shots__slot">{t.ar.slot}</div>
+            {/* 실제 기기에서 찍은 AR 화면: 길고양이 앞에 그 고양이로 만든 블록 고양이가 놓여 있다 */}
+            <img className="snap__photo" src="/shot-ar.webp" alt={t.screenAlt(t.ar.term)} width={1066} height={1896} loading="lazy" style={{ aspectRatio: "1066 / 1896" }} />
           </figure>
           <h3>{t.ar.term}</h3>
           <p>{t.ar.body}</p>

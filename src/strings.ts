@@ -25,7 +25,7 @@ type Home = {
   screenAlt: (term: string) => string;
   shots: { term: string; body: string }[];
   visit: { term: string; body: string };
-  ar: { term: string; body: string; slot: string };
+  ar: { term: string; body: string };
   iconAlt: string;
 };
 
@@ -65,7 +65,7 @@ export const HOME: Record<Lang, Home> = {
       { term: "수집 노트", body: "종류별 칸을 하나씩 채워요." },
     ],
     visit: { term: "놀러 가기", body: "코드나 링크를 넣으면 하늘을 날아 다른 사람 집에 도착해요." },
-    ar: { term: "AR", body: "바닥을 비추고 탭하면 실제 방에 놓여요. 그대로 녹화도 돼요.", slot: "AR 사진 자리" },
+    ar: { term: "AR", body: "바닥을 비추고 탭하면 실제 방에 놓여요. 그대로 녹화도 돼요." },
     iconAlt: "CUBU 앱 아이콘",
   },
   en: {
@@ -103,7 +103,7 @@ export const HOME: Record<Lang, Home> = {
       { term: "Notebook", body: "Fill in a box for each type, one at a time." },
     ],
     visit: { term: "Visit", body: "Enter a code or a link and you fly across the sky to someone else's house." },
-    ar: { term: "AR", body: "Point at the floor and tap to put it in your real room. You can record it too.", slot: "AR photo" },
+    ar: { term: "AR", body: "Point at the floor and tap to put it in your real room. You can record it too." },
     iconAlt: "CUBU app icon",
   },
   ja: {
@@ -141,7 +141,7 @@ export const HOME: Record<Lang, Home> = {
       { term: "収集ノート", body: "種類ごとのマスをひとつずつ埋めていきます。" },
     ],
     visit: { term: "遊びに行く", body: "コードかリンクを入れると、空を飛んでほかの人の家に着きます。" },
-    ar: { term: "AR", body: "床を映してタップすると、本物の部屋に置けます。そのまま録画もできます。", slot: "AR写真" },
+    ar: { term: "AR", body: "床を映してタップすると、本物の部屋に置けます。そのまま録画もできます。" },
     iconAlt: "CUBUのアプリアイコン",
   },
   es: {
@@ -179,7 +179,7 @@ export const HOME: Record<Lang, Home> = {
       { term: "Cuaderno", body: "Rellena una casilla por cada tipo, una a una." },
     ],
     visit: { term: "Visitar", body: "Escribe un código o abre un enlace y vuelas por el cielo hasta la casa de otra persona." },
-    ar: { term: "RA", body: "Apunta al suelo y toca para ponerlo en tu habitación de verdad. También puedes grabarlo.", slot: "Foto en RA" },
+    ar: { term: "RA", body: "Apunta al suelo y toca para ponerlo en tu habitación de verdad. También puedes grabarlo." },
     iconAlt: "Icono de la app CUBU",
   },
 };
