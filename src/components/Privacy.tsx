@@ -85,7 +85,7 @@ const BODY: Record<Lang, ReactNode> = {
       <p>알림을 허용하면, 운영자가 선물을 보냈을 때와 누가 내 집에 놀러 왔을 때(하루 한 번까지)와 내 집의 무언가에 하트를 남겼을 때(하루 세 번까지) 알리기 위해 기기의 Apple 푸시 알림 토큰과 앱 화면 언어를 설치 ID와 함께 중계 서버에 보관합니다. 이 알림은 Apple의 푸시 알림 서비스(APNs)를 거쳐 전달됩니다. iOS 설정에서 알림을 끄면 표시되지 않으며, 앱을 지우는 등으로 토큰이 무효가 되면 서버에서 지웁니다. 운영자가 보내는 선물(티켓·코인)은 설치 ID로 전달하고, 보낸 내용과 받은 시각을 기록합니다.</p>
 
       <h2>웹사이트</h2>
-      <p>cubu.page는 쿠키를 쓰지 않고 브라우저에 아무것도 저장하지 않습니다. 방문 수를 세기 위해 페이지를 열 때 페이지 주소, 언어, 들어온 사이트 이름을 중계 서버로 보내고, 브라우저 정보로 기기 종류(휴대폰, 컴퓨터, 앱 안 브라우저)를 셉니다. 그날의 방문자 수는 IP 주소와 브라우저 정보를 하루마다 바뀌는 무작위 값과 섞은 해시로 세며, 이 해시는 2일 뒤 지웁니다. IP 주소 자체는 저장하지 않고, 남는 것은 날짜별 방문 수뿐입니다.</p>
+      <p>cubu.page는 쿠키를 쓰지 않고 브라우저에 아무것도 저장하지 않습니다. 방문 수를 세기 위해 페이지를 열 때 페이지 주소, 언어, 들어온 사이트 이름을 중계 서버로 보내고, 브라우저 정보로 기기 종류(휴대폰, 컴퓨터, 앱 안 브라우저)와 휴대폰 운영체제(Android, iOS)를 셉니다. 그날의 방문자 수는 IP 주소와 브라우저 정보를 하루마다 바뀌는 무작위 값과 섞은 해시로 세며, 이 해시는 2일 뒤 지웁니다. IP 주소 자체는 저장하지 않고, 남는 것은 날짜별 방문 수뿐입니다.</p>
 
       <h2>사용 통계와 운영 기록</h2>
       <p>
@@ -157,7 +157,7 @@ const BODY: Record<Lang, ReactNode> = {
       <p>If you allow notifications, CUBU keeps your device's Apple push notification token and the app's display language with the install ID on the relay server, so it can tell you when the operator sends you a gift, when someone visits your house (at most once a day) and when someone leaves a heart on something in your house (at most three times a day). These notifications are delivered through Apple's push notification service (APNs). If you turn notifications off in iOS Settings they are no longer shown, and when the token stops working (for example after the app is deleted) it is removed from the server. Gifts from the operator (tickets and coins) are delivered by install ID, and what was sent and when it was received are recorded.</p>
 
       <h2>Website</h2>
-      <p>cubu.page uses no cookies and stores nothing in your browser. To count visits, opening a page sends the page address, the language and the name of the site you came from to the relay server, and the browser string is used to count the kind of device (phone, computer, in-app browser). Daily visitors are counted with a hash of your IP address and browser string mixed with a random value that changes every day; the hash is deleted after 2 days. The IP address itself is never stored, and only daily visit counts remain.</p>
+      <p>cubu.page uses no cookies and stores nothing in your browser. To count visits, opening a page sends the page address, the language and the name of the site you came from to the relay server, and the browser string is used to count the kind of device (phone, computer, in-app browser) and the phone's system (Android or iOS). Daily visitors are counted with a hash of your IP address and browser string mixed with a random value that changes every day; the hash is deleted after 2 days. The IP address itself is never stored, and only daily visit counts remain.</p>
 
       <h2>Usage statistics and service records</h2>
       <p>
@@ -216,7 +216,7 @@ const BODY: Record<Lang, ReactNode> = {
       <p>通知を許可すると、運営からプレゼントが届いたとき、だれかが家に遊びに来たとき（1日1回まで）、家のなにかにハートが残されたとき（1日3回まで）にお知らせするために、端末のAppleプッシュ通知トークンとアプリの表示言語をインストールIDとともに中継サーバーに保管します。この通知はAppleのプッシュ通知サービス(APNs)を通じて届きます。iOSの設定で通知をオフにすると表示されなくなり、アプリの削除などでトークンが無効になるとサーバーから削除します。運営からのプレゼント(チケット・コイン)はインストールIDあてに届け、送った内容と受け取った時刻を記録します。</p>
 
       <h2>ウェブサイト</h2>
-      <p>cubu.pageはクッキーを使わず、ブラウザに何も保存しません。訪問数を数えるため、ページを開くとページのアドレス、言語、どのサイトから来たかを中継サーバーに送り、ブラウザ情報から端末の種類（スマートフォン、パソコン、アプリ内ブラウザ）を数えます。その日の訪問者数は、IPアドレスとブラウザ情報を毎日変わるランダムな値と混ぜたハッシュで数え、このハッシュは2日後に削除します。IPアドレスそのものは保存せず、残るのは日ごとの訪問数だけです。</p>
+      <p>cubu.pageはクッキーを使わず、ブラウザに何も保存しません。訪問数を数えるため、ページを開くとページのアドレス、言語、どのサイトから来たかを中継サーバーに送り、ブラウザ情報から端末の種類（スマートフォン、パソコン、アプリ内ブラウザ）とスマートフォンのOS（Android、iOS）を数えます。その日の訪問者数は、IPアドレスとブラウザ情報を毎日変わるランダムな値と混ぜたハッシュで数え、このハッシュは2日後に削除します。IPアドレスそのものは保存せず、残るのは日ごとの訪問数だけです。</p>
 
       <h2>利用統計と運営記録</h2>
       <p>
@@ -286,7 +286,7 @@ const BODY: Record<Lang, ReactNode> = {
       <p>Si permites las notificaciones, CUBU guarda en el servidor intermediario el token de notificaciones push de Apple de tu dispositivo y el idioma de la app junto con el ID de instalación, para avisarte cuando el operador te envía un regalo, cuando alguien visita tu casa (como mucho una vez al día) y cuando alguien deja un corazón en algo de tu casa (como mucho tres veces al día). Estas notificaciones se entregan a través del servicio de notificaciones push de Apple (APNs). Si desactivas las notificaciones en Ajustes de iOS dejan de mostrarse, y cuando el token deja de funcionar (por ejemplo, al borrar la app) se elimina del servidor. Los regalos del operador (tickets y monedas) se entregan por ID de instalación, y se registra qué se envió y cuándo se recibió.</p>
 
       <h2>Sitio web</h2>
-      <p>cubu.page no usa cookies ni guarda nada en tu navegador. Para contar las visitas, al abrir una página se envían al servidor intermediario la dirección de la página, el idioma y el nombre del sitio desde el que llegaste, y con los datos del navegador se cuenta el tipo de dispositivo (móvil, ordenador, navegador dentro de una app). Los visitantes de cada día se cuentan con un hash de tu dirección IP y los datos del navegador mezclados con un valor aleatorio que cambia cada día; ese hash se borra a los 2 días. La dirección IP no se guarda nunca y solo quedan los recuentos diarios de visitas.</p>
+      <p>cubu.page no usa cookies ni guarda nada en tu navegador. Para contar las visitas, al abrir una página se envían al servidor intermediario la dirección de la página, el idioma y el nombre del sitio desde el que llegaste, y con los datos del navegador se cuentan el tipo de dispositivo (móvil, ordenador, navegador dentro de una app) y el sistema del móvil (Android o iOS). Los visitantes de cada día se cuentan con un hash de tu dirección IP y los datos del navegador mezclados con un valor aleatorio que cambia cada día; ese hash se borra a los 2 días. La dirección IP no se guarda nunca y solo quedan los recuentos diarios de visitas.</p>
 
       <h2>Estadísticas de uso y registros del servicio</h2>
       <p>
