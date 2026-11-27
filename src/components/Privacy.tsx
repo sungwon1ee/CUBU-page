@@ -37,7 +37,7 @@ const a = (href: string, text: string) => <a href={href}>{text}</a>;
 const OPENAI = "https://platform.openai.com/docs/guides/your-data";
 const FAL = "https://fal.ai/privacy";
 const METEO = "https://open-meteo.com/";
-const ADMOB = "https://policies.google.com/privacy";
+const UNITY = "https://unity.com/legal/game-player-and-app-user-privacy-policy";
 const EULA = "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/";
 
 const BODY: Record<Lang, ReactNode> = {
@@ -74,8 +74,8 @@ const BODY: Record<Lang, ReactNode> = {
       <p>
         Apple이 결제를 처리합니다. 거래 검증과 집계에 거래 ID, 상품, 가격, 통화, 구매 시각 및 무작위 설치 ID를 사용합니다. CUBU는 카드 번호를 받지
         않습니다. Apple iCloud를 사용할 수 있는 경우 지갑과 방 상태가 같은 Apple 계정의 기기 사이에 동기화됩니다. 보상형 광고에는{" "}
-        {a(ADMOB, "Google AdMob")}을 사용합니다. Google은 광고 제공, 측정, 부정 사용 방지를 위해 IP 주소, 기기 및 광고 상호작용 정보를 처리할 수
-        있습니다.
+        {a(UNITY, "Unity LevelPlay와 Unity Ads")}를 사용합니다. Unity는 광고 제공, 측정, 부정 사용 방지를 위해 IP 주소, 기기 및 광고 상호작용 정보를 처리할 수
+        있습니다. CUBU는 앱 추적 허용을 묻지 않으며, EU·영국 사용자에게는 관심사 기반 광고를 끈 채로 광고를 요청합니다.
       </p>
 
       <h2>놀러 가기</h2>
@@ -146,8 +146,9 @@ const BODY: Record<Lang, ReactNode> = {
       <p>
         Apple processes payments. The transaction ID, product, price, currency, purchase time and a random install ID are used to verify and count
         transactions. CUBU never receives card numbers. When Apple iCloud is available, your wallet and room are synced between devices on the same
-        Apple Account. Rewarded ads use {a(ADMOB, "Google AdMob")}. Google may process your IP address, device information and ad interactions to
-        serve and measure ads and to prevent fraud.
+        Apple Account. Rewarded ads use {a(UNITY, "Unity LevelPlay and Unity Ads")}. Unity may process your IP address, device information and ad interactions to
+        serve and measure ads and to prevent fraud. CUBU does not ask to track you, and for users in the EU and UK it requests ads with
+        interest-based advertising turned off.
       </p>
 
       <h2>Visit</h2>
@@ -205,8 +206,8 @@ const BODY: Record<Lang, ReactNode> = {
       <h2>購入、同期、広告</h2>
       <p>
         決済はAppleが処理します。取引の確認と集計に、取引ID、商品、価格、通貨、購入日時、ランダムなインストールIDを使います。CUBUがカード番号を受け取ることはありません。Apple
-        iCloudが使える場合、ウォレットと部屋の状態は同じApple Accountの端末間で同期されます。リワード広告には{a(ADMOB, "Google AdMob")}
-        を使います。Googleは広告の配信、測定、不正利用の防止のために、IPアドレス、端末情報、広告とのやり取りを処理することがあります。
+        iCloudが使える場合、ウォレットと部屋の状態は同じApple Accountの端末間で同期されます。リワード広告には{a(UNITY, "Unity LevelPlayとUnity Ads")}
+        を使います。Unityは広告の配信、測定、不正利用の防止のために、IPアドレス、端末情報、広告とのやり取りを処理することがあります。CUBUはトラッキングの許可を求めず、EU・英国のユーザーには興味関心に基づく広告をオフにして広告をリクエストします。
       </p>
 
       <h2>遊びに行く</h2>
@@ -275,8 +276,9 @@ const BODY: Record<Lang, ReactNode> = {
       <p>
         Apple procesa los pagos. Para verificar y contabilizar las transacciones se usan el ID de transacción, el producto, el precio, la moneda, la
         hora de compra y un ID de instalación aleatorio. CUBU nunca recibe números de tarjeta. Si Apple iCloud está disponible, tu monedero y tu
-        habitación se sincronizan entre los dispositivos de la misma cuenta de Apple. Los anuncios con recompensa usan {a(ADMOB, "Google AdMob")}.
-        Google puede tratar tu dirección IP, información del dispositivo y tus interacciones con anuncios para mostrarlos, medirlos y evitar fraudes.
+        habitación se sincronizan entre los dispositivos de la misma cuenta de Apple. Los anuncios con recompensa usan {a(UNITY, "Unity LevelPlay y Unity Ads")}.
+        Unity puede tratar tu dirección IP, información del dispositivo y tus interacciones con anuncios para mostrarlos, medirlos y evitar fraudes.
+        CUBU no te pide permiso de rastreo y, para usuarios de la UE y el Reino Unido, solicita anuncios con la publicidad basada en intereses desactivada.
       </p>
 
       <h2>Visitar</h2>
