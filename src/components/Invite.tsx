@@ -1,6 +1,6 @@
 import { LangPicker, useDocumentMeta, useLang, useText, type Lang } from "../i18n";
 import { COMMON } from "../strings";
-import { AppStoreBadge } from "./AppStoreBadge";
+import { StoreBadges } from "./AppStoreBadge";
 import { Footer } from "./Footer";
 import { Grain } from "./Grain";
 
@@ -89,7 +89,7 @@ export function Invite() {
         </div>
         <div className="invite__get">
           <p>{t.noApp}</p>
-          <AppStoreBadge size="large" />
+          <StoreBadges />
         </div>
       </main>
       <Footer />

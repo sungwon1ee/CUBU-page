@@ -211,6 +211,7 @@ img {
   gap: 0.5em;
   background: #000;
   color: #fff;
+  text-align: left;
   text-decoration: none;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -258,6 +259,57 @@ img {
   height: 42px;
   padding: 0 14px 0 11px;
   border-radius: 8px;
+}
+/* 가게 배지 둘: 넓은 쪽에 맞춘 같은 너비로 나란히 놓는다 */
+.stores {
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 16px;
+}
+.stores .badge {
+  justify-content: center;
+}
+/* 첫 화면은 글 너비가 좁아 위아래로 쌓고, 그림과 글자가 한 줄로 서게 왼쪽에 붙인다 */
+.hero__copy .stores {
+  grid-auto-flow: row;
+  gap: 24px;
+}
+.hero__copy .stores .badge {
+  justify-content: flex-start;
+}
+.badge--play svg {
+  margin-top: 0;
+}
+/* Google Play 준비 중: App Store와 같은 배지를 꺼진 모양(흐린 판, 흐린 글자, 그림자 없음)으로 두고,
+   "준비 중" 스티커만 또렷하게 모서리에 붙인다 */
+.badge--soon {
+  position: relative;
+  cursor: default;
+  background: rgb(43 29 22 / 0.3);
+  border-color: rgb(43 29 22 / 0.18);
+  color: rgb(255 250 240 / 0.62);
+  box-shadow: none;
+}
+.badge--soon.badge--large:hover,
+.badge--soon.badge--large:active {
+  transform: none;
+  box-shadow: none;
+}
+.badge__soon {
+  position: absolute;
+  top: -14px;
+  right: -18px;
+  padding: 7px 10px 6px;
+  background: #fffaf0;
+  color: #b8402c;
+  font: normal 400 14px/1 "Galmuri14", var(--pixel);
+  /* 갈무리14에는 굵은 글꼴이 없어 한 도트 옆에 한 번 더 찍어 굵게 만든다 */
+  text-shadow: 1px 0 0 currentColor;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 rgb(43 29 22 / 0.4);
+  transform: rotate(5deg);
 }
 .badge:focus-visible,
 .footer a:focus-visible,
@@ -797,6 +849,12 @@ img {
   .shots h3 { margin-top: 18px; }
   .download { padding: 80px var(--gutter) 88px; }
   .footer__links { margin-right: 0; width: 100%; order: 3; }
+}
+
+/* 배지 둘이 나란히 들어가지 않는 너비에서는 어디서나 위아래로 */
+@media (max-width: 540px) {
+  .stores { grid-auto-flow: row; gap: 24px; }
+  .stores .badge { justify-content: flex-start; }
 }
 
 /* 좁은 폰: 위쪽 줄에 이름, 배지, 언어가 한 줄에 들어가도록 */

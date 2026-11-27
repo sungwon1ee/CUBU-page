@@ -15,7 +15,7 @@ import motorcycle from "../cubu/objects/motorcycle.json";
 import oolong from "../cubu/objects/oolong.json";
 import { useDocumentMeta, useText, LangPicker } from "../i18n";
 import { HOME, COMMON } from "../strings";
-import { AppStoreBadge } from "./AppStoreBadge";
+import { AppStoreBadge, StoreBadges } from "./AppStoreBadge";
 import { Footer } from "./Footer";
 import { Grain } from "./Grain";
 
@@ -81,7 +81,7 @@ function Hero() {
             {t.hero[3]}
           </span>
         </p>
-        <AppStoreBadge size="large" />
+        <StoreBadges />
       </div>
     </header>
   );
@@ -289,7 +289,7 @@ function Download() {
     <section className="download">
       <img src="/icon-512.png" alt={t.iconAlt} width={112} height={112} />
       <h2 className="title">CUBU</h2>
-      <AppStoreBadge size="large" />
+      <StoreBadges />
     </section>
   );
 }

@@ -8,6 +8,8 @@ export const site = {
   year: 2026,
   /** App Store 주소. 나라를 빼 두면 Apple이 방문자의 나라 store로 보낸다 */
   appStoreUrl: "https://apps.apple.com/app/id6834689285",
+  /** Google Play 주소. 비어 있으면 "준비 중" 표시만 하고, 사전 등록 주소가 생기면 여기에 넣는다 */
+  playStoreUrl: "",
   socials: [
     { id: "instagram", label: "Instagram", url: "https://www.instagram.com/malang.lab/" },
     { id: "github", label: "GitHub", url: "https://github.com/sungwon1ee" },

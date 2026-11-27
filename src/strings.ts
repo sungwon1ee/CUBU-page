@@ -184,11 +184,11 @@ export const HOME: Record<Lang, Home> = {
   },
 };
 
-type Common = { madeBy: string; privacy: string; contact: string; badge: string; home: string };
+type Common = { madeBy: string; privacy: string; contact: string; badge: string; home: string; soon: string };
 
 export const COMMON: Record<Lang, Common> = {
-  ko: { madeBy: "만든 사람", privacy: "개인정보 처리방침", contact: "문의", badge: "App Store에서 다운로드", home: "처음으로" },
-  en: { madeBy: "Made by", privacy: "Privacy policy", contact: "Contact", badge: "Download on the App Store", home: "Home" },
-  ja: { madeBy: "制作", privacy: "プライバシーポリシー", contact: "お問い合わせ", badge: "App Storeからダウンロード", home: "ホーム" },
-  es: { madeBy: "Hecho por", privacy: "Política de privacidad", contact: "Contacto", badge: "Descargar en el App Store", home: "Inicio" },
+  ko: { madeBy: "만든 사람", privacy: "개인정보 처리방침", contact: "문의", badge: "App Store에서 다운로드", home: "처음으로", soon: "준비 중" },
+  en: { madeBy: "Made by", privacy: "Privacy policy", contact: "Contact", badge: "Download on the App Store", home: "Home", soon: "Coming soon" },
+  ja: { madeBy: "制作", privacy: "プライバシーポリシー", contact: "お問い合わせ", badge: "App Storeからダウンロード", home: "ホーム", soon: "近日公開" },
+  es: { madeBy: "Hecho por", privacy: "Política de privacidad", contact: "Contacto", badge: "Descargar en el App Store", home: "Inicio", soon: "Próximamente" },
 };
