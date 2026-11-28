@@ -73,7 +73,7 @@ const BODY: Record<Lang, ReactNode> = {
       <h2>구매, 저장, 광고</h2>
       <p>
         Apple이 결제를 처리합니다. 거래 검증과 집계에 거래 ID, 상품, 가격, 통화, 구매 시각 및 무작위 설치 ID를 사용합니다. CUBU는 카드 번호를 받지
-        않습니다. Apple iCloud를 사용할 수 있는 경우 지갑과 방 상태가 같은 Apple 계정의 기기 사이에 동기화됩니다. 보상형 광고에는{" "}
+        않습니다. Apple iCloud를 사용할 수 있는 경우 지갑과 방 상태가 같은 Apple 계정의 기기 사이에 동기화됩니다. 도감의 사람·동물·물건(블록 모양, 이름과 메모, 태그, 장소 이름, 집 안의 자리)은 앱을 다시 깔거나 다른 기기에서 이어 할 수 있도록 CUBU 중계 서버에 백업되며, 내 집 열쇠(무작위 ID)를 iCloud에 두어 같은 Apple 계정의 기기가 그 백업을 찾습니다. 스캔 사진과 원본 3D 모델은 백업하지 않습니다. 백업은 다른 사람에게 보이지 않고, 설정의 ‘처음부터 다시 하기’를 하면 지워지며, 2년 동안 쓰지 않으면 자동으로 지웁니다. 보상형 광고에는{" "}
         {a(UNITY, "Unity LevelPlay와 Unity Ads")}를 사용합니다. Unity는 광고 제공, 측정, 부정 사용 방지를 위해 IP 주소, 기기 및 광고 상호작용 정보를 처리할 수
         있습니다. CUBU는 앱 추적 허용을 묻지 않으며, EU·영국 사용자에게는 관심사 기반 광고를 끈 채로 광고를 요청합니다.
       </p>
@@ -146,7 +146,7 @@ const BODY: Record<Lang, ReactNode> = {
       <p>
         Apple processes payments. The transaction ID, product, price, currency, purchase time and a random install ID are used to verify and count
         transactions. CUBU never receives card numbers. When Apple iCloud is available, your wallet and room are synced between devices on the same
-        Apple Account. Rewarded ads use {a(UNITY, "Unity LevelPlay and Unity Ads")}. Unity may process your IP address, device information and ad interactions to
+        Apple Account. The people, animals and things in your collection (their block shapes, names and notes, tags, place names and where they sit in your houses) are backed up on the CUBU relay server so you can reinstall or carry on from another device, and a random house key kept in iCloud lets devices on the same Apple Account find that backup. Scan photos and original 3D models are not backed up. The backup is never shown to anyone else, is deleted when you use ‘Start over’ in Settings, and is deleted automatically after two years without use. Rewarded ads use {a(UNITY, "Unity LevelPlay and Unity Ads")}. Unity may process your IP address, device information and ad interactions to
         serve and measure ads and to prevent fraud. CUBU does not ask to track you, and for users in the EU and UK it requests ads with
         interest-based advertising turned off.
       </p>
@@ -206,7 +206,7 @@ const BODY: Record<Lang, ReactNode> = {
       <h2>購入、同期、広告</h2>
       <p>
         決済はAppleが処理します。取引の確認と集計に、取引ID、商品、価格、通貨、購入日時、ランダムなインストールIDを使います。CUBUがカード番号を受け取ることはありません。Apple
-        iCloudが使える場合、ウォレットと部屋の状態は同じApple Accountの端末間で同期されます。リワード広告には{a(UNITY, "Unity LevelPlayとUnity Ads")}
+        iCloudが使える場合、ウォレットと部屋の状態は同じApple Accountの端末間で同期されます。図鑑の人・動物・モノ（ブロックの形、名前とメモ、タグ、場所の名前、家の中の位置）は、アプリを入れ直したりほかの端末で続けたりできるようにCUBU中継サーバーにバックアップされ、家の鍵（ランダムなID）をiCloudに置くことで同じApple Accountの端末がそのバックアップを見つけます。スキャン写真と元の3Dモデルはバックアップしません。バックアップはほかの人には見えず、設定の「最初からやり直す」で消え、2年間使われないと自動的に消します。リワード広告には{a(UNITY, "Unity LevelPlayとUnity Ads")}
         を使います。Unityは広告の配信、測定、不正利用の防止のために、IPアドレス、端末情報、広告とのやり取りを処理することがあります。CUBUはトラッキングの許可を求めず、EU・英国のユーザーには興味関心に基づく広告をオフにして広告をリクエストします。
       </p>
 
@@ -276,7 +276,7 @@ const BODY: Record<Lang, ReactNode> = {
       <p>
         Apple procesa los pagos. Para verificar y contabilizar las transacciones se usan el ID de transacción, el producto, el precio, la moneda, la
         hora de compra y un ID de instalación aleatorio. CUBU nunca recibe números de tarjeta. Si Apple iCloud está disponible, tu monedero y tu
-        habitación se sincronizan entre los dispositivos de la misma cuenta de Apple. Los anuncios con recompensa usan {a(UNITY, "Unity LevelPlay y Unity Ads")}.
+        habitación se sincronizan entre los dispositivos de la misma cuenta de Apple. Las personas, animales y objetos de tu colección (su forma de bloques, nombres y notas, etiquetas, nombres de lugares y dónde están en tus casas) se guardan como copia de seguridad en el servidor intermedio de CUBU para que puedas reinstalar la app o seguir en otro dispositivo, y una llave de casa aleatoria guardada en iCloud permite que los dispositivos de la misma cuenta de Apple encuentren esa copia. Las fotos de escaneo y los modelos 3D originales no se copian. La copia nunca se muestra a otras personas, se borra al usar «Empezar de nuevo» en Ajustes y se borra automáticamente tras dos años sin uso. Los anuncios con recompensa usan {a(UNITY, "Unity LevelPlay y Unity Ads")}.
         Unity puede tratar tu dirección IP, información del dispositivo y tus interacciones con anuncios para mostrarlos, medirlos y evitar fraudes.
         CUBU no te pide permiso de rastreo y, para usuarios de la UE y el Reino Unido, solicita anuncios con la publicidad basada en intereses desactivada.
       </p>
